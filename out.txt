@@ -1,0 +1,15 @@
+Person xuMo18474 = new Person("许墨·点点莹光", 18, 474, 15, 614, 550);
+Person baiQi1615 = new Person("白起·灼灼光芒", 16, 15, 454, 533, 514);
+Person baiQi16145 = new Person("白起·激战", 16, 145, 155, 14, 1201);
+Person zhouQiLuo16367 = new Person("周棋洛·伪装者", 16, 367, 13, 453, 478);
+Person liZeYan1613 = new Person("李泽言·情不自禁", 16, 13, 390, 472, 435);
+Person zhouQiLuo1312 = new Person("周棋洛·落雪时光", 13, 12, 387, 437, 474);
+Person xuMo1714 = new Person("许墨·记录", 17, 14, 615, 509, 237);
+Person liZeYan14504 = new Person("李泽言·时间掌控者", 14, 504, 196, 12, 467);
+Person zhouQiLuo1814 = new Person("周棋洛·独家定制", 18, 14, 601, 576, 248);
+Person liZeYan12417 = new Person("李泽言·冰山气场", 12, 417, 292, 10, 330);
+Person liZeYan12408 = new Person("李泽言·心灵博奕", 12, 408, 448, 10, 183);
+Person xuMo10279 = new Person("许墨·读你", 10, 279, 9, 319, 312);
+Person zhouQiLuo10281 = new Person("周棋洛·入眠", 10, 281, 9, 278, 351);
+Person zhouQiLuo108 = new Person("周棋洛·你的样子", 10, 8, 255, 312, 236);
+Person xuMo10230 = new Person("许墨·静静等待", 10, 230, 8, 279, 294);
