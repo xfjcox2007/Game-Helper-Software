@@ -57,6 +57,22 @@ public class Person {
     return blue;
   }
 
+  public int getYellow() {
+    return yellow;
+  }
+
+  public int getPink() {
+    return pink;
+  }
+
+  public int getGreen() {
+    return green;
+  }
+
+  public int getLevel() {
+    return level;
+  }
+
   @Override
   public String toString() {
     String s = "";

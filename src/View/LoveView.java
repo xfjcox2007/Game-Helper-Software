@@ -126,7 +126,30 @@ public class LoveView extends JFrame implements IView {
     buttonPanel.setPreferredSize(new Dimension(500, 100));
     mainPanel.add(buttonPanel, BorderLayout.PAGE_END);
 
-    //button panel -- test field for update infor
+    //button panel -- goal text field
+    goalField = new JTextField(15);
+    goalField.setBorder(BorderFactory.createTitledBorder("Set up your goal"));
+    buttonPanel.add(goalField);
+
+
+    //button panel -- go button
+    go = new JButton("Go");
+    go.setSize(new Dimension(5, 5));
+    go.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        Scanner scanner = new Scanner(goalField.getText());
+        while (scanner.hasNext()) {
+          int goal = scanner.nextInt();
+          String s = approachTheGoal(goal);
+          personInfo.setText(s);
+          goalField.setText("");
+        }
+      }
+    });
+    buttonPanel.add(go);
+
+    //button panel -- test field for update info
     textField = new JTextField(15);
     textField.setBorder(BorderFactory.createTitledBorder("Update Information"));
     buttonPanel.add(textField, BorderLayout.WEST);
@@ -238,7 +261,42 @@ public class LoveView extends JFrame implements IView {
 
   @Override
   public String approachTheGoal(int goal) {
-    return null;
+    String s = "";
+    int n = persons.size();
+    int[][] temp = new int[n][n];
+
+    for (int i = 0; i < n; i++) {
+      Person p = persons.get(i);
+      int sum = p.getBlue() + p.getPink() + p.getGreen() + p.getYellow();
+      temp[i][i] = sum;
+    }
+
+    for (int l = 2; l<= n; l++) {
+      for (int i = 0; i < n - l + 1; i++) {
+        int j = i + l - 1;
+        Person p = persons.get(j);
+        int sum = p.getBlue() + p.getPink() + p.getGreen() + p.getYellow();
+        if (sum > goal) {
+          temp[i][j] = Math.max(temp[i+1][j], temp[i][j-1]);
+        }
+        if (sum <= goal && temp[i+1][j] + sum > goal) {
+          temp[i][j] = temp[i][j-1];
+        }
+        else {
+          temp[i][j] = Math.max(temp[i+1][j] + sum, temp[i][j-1]);
+        }
+
+      }
+    }
+
+    if (temp[0][n-1] <= goal) {
+      s = s + "Yes, the max you can get is " + temp[0][n-1];
+    } else {
+      s = s + "No, you cannot reach this goal";
+    }
+
+    return s;
+
   }
 
 
